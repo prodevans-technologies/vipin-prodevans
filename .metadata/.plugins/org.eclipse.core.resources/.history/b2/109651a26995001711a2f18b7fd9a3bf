@@ -1,0 +1,23 @@
+package com.prodevans.it.SparkPorgrams
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
+import org.apache.spark.SparkConf
+
+object BroadcastFilter 
+{
+
+  
+   def main(args:Array[String])
+  {
+    
+      val conf= new SparkConf().setAppName("Broadcast filter").setMaster("local").set("spark.hadoop.validateOutputSpecs","")
+      val sc=new SparkContext(conf)
+      
+      val words=contentRDD.flatMap( line=>line.split(",") )
+
+      
+  }
+  
+  
+}

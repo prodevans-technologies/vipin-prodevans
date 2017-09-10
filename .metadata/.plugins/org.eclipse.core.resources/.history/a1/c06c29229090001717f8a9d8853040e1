@@ -1,0 +1,10 @@
+package Hive;
+
+import org.apache.hadoop.hive.ql.exec.UDF;
+import org.apache.hadoop.io.Text;
+
+public class FindDepartment extends UDF
+{
+	private Text result=new Text();
+	String result_date="";
+}

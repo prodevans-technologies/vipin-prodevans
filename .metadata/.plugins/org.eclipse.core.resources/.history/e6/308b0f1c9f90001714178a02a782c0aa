@@ -1,0 +1,30 @@
+package com.prodevans.scala
+
+object ListProgramBasic 
+{
+
+  val number : List[Int]=List(1,2,3,4,5)
+  val strings : List[String]=List("aaa","bbb","ccc","ddd")
+  
+  def displayNumbers()
+  {
+    number.foreach{println}
+  }
+  def displayStrings()
+  {
+    strings.foreach{println}
+  }
+  def main(args:Array[String])
+  {
+    ListProgramBasic.displayNumbers()
+    ListProgramBasic.displayStrings()
+  }
+  
+  val fruite1="apples" :: ("oranges" :: ("pears" :: Nil))
+  val fruite2="mangos" :: ("banana" :: Nil)
+  
+  var fruite = fruite1 :::fruite2
+  println("fruite1 ::: fruite2 :"+fruite)
+  
+  
+}

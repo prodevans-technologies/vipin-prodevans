@@ -1,0 +1,12 @@
+package com.prodevans.condition
+
+object ClouserFunction {
+  
+  
+    def main( a : Array[String])
+    {
+      
+          
+    }
+  
+}

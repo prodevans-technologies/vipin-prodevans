@@ -1,0 +1,25 @@
+package Hive;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.hadoop.hive.ql.exec.UDF;
+import org.apache.hadoop.io.Text;
+
+import com.google.protobuf.TextFormat.ParseException;
+
+public class FindDepartment extends UDF
+{
+	private Text result=new Text();
+	String result_date="";
+	public Text evaluate(String doj) throws java.text.ParseException
+	{
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf_target=new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date dt_doj=sdf.parse(doj.trim());
+		result_date=sdf_target.format(dt_doj);
+		
+		return new Text(result_date);
+	}
+}

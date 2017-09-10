@@ -1,0 +1,17 @@
+package com.prodevans.condition
+
+object PatternMatching 
+{
+  
+  def main(args : Array[String])
+  {
+    
+    
+    def matchTestInt(x:Int): String = x match
+    {
+      
+    }
+    
+  }
+  
+}

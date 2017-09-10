@@ -1,0 +1,13 @@
+package com.prodevans.scala
+
+object ListWithClass 
+{
+
+  def main(args : Array[String])
+  {
+    
+    case class Student(st_roll : Int, st_name : String, st_marks : Int)
+    
+  }
+  
+}
