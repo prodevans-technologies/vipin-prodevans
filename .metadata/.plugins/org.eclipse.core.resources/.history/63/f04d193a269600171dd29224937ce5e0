@@ -1,0 +1,10 @@
+package com.prodevans.scala
+
+object DataFormat 
+{
+  
+  val conf= new SparkConf().setAppName("Join Operation").setMaster("local").set("spark.hadoop.validateOutputSpecs","false")
+    val sc=new SparkContext(conf)
+    
+
+}

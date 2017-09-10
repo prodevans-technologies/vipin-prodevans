@@ -1,0 +1,40 @@
+package com.prodevans.scala
+
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
+import org.apache.spark.SparkConf
+
+
+/*
+ * EmployeeManager.csv[id,managerName]
+ * EmployeeName.csv[id,name]
+ * EmployeeSalary.csv[id,salary]
+ * 
+ * Using spark generate a joined output link below and save a text file (seperated by coma)
+ * for final distribution and final output must be stored
+ * 
+ */
+
+object JoinOperation 
+{
+
+  def main(args: Array[String])
+  {
+    
+    val conf= new SparkConf().setAppName("Join Operation").setMaster("local").set("spark.hadoop.validateOutputSpecs","false")
+    val sc=new SparkContext(conf)
+    
+    val manager = sc.textFile("C:/Users/vip/Desktop/Hadoop_Data/EmployeeManager.csv")
+    val managerPairRDD= manager.map( x=> (x.split(",")(0), x.split(",")(1) ) )
+    
+    val employeeName = sc.textFile("C:/Users/vip/Desktop/Hadoop_Data/EmployeeName.csv")
+    val employeePairRDD= manager.map( x=> (x.split(",")(0), x.split(",")(1) ) )
+    
+    val employeeSalary = sc.textFile("C:/Users/vip/Desktop/Hadoop_Data/EmployeeSalary.csv")
+    val employeePairRDD= manager.map( x=> (x.split(",")(0), x.split(",")(1) ) )
+    
+    
+  }
+  
+}
