@@ -1,7 +1,0 @@
-package com.prodevans.scala
-
-class CaseClassDept 
-(
-    dept_id:String,
-    emp_dept:String    
-)

@@ -1,8 +1,0 @@
-package com.prodevans.scala
-
-object ListProgramBasic 
-{
-
-  val number : List[Int]=List();
-  
-}

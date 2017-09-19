@@ -1,9 +1,0 @@
-package com.prodevans.scala
-
-case class CaseClassEmployees {
-  
-  
-    emp_id : Int,
-    emp_name:String,
-  
-}
