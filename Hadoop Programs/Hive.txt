@@ -1,0 +1,83 @@
+create table employees(emp_id int,emp_name string,emp_dsgntn string,emp_doj Date,emp_sal int,emp_dept string)row format delimited
+fields terminated by ','
+lines terminated by '\n'
+stored as textfile;
+
+/*location for internal database : /apps/hive/werehouse/database.db/table*/
+
+
+load data local inpath 'vipin/employee.txt' into table training_vipin.employees;
+
+
+writing queries in shell script :
+
+hive -v "query";
+
+create external table employeesExternal(emp_id int,emp_name string,emp_dsgntn string,emp_doj Date,emp_sal int,emp_dept string)row format delimited
+fields terminated by ','
+lines terminated by '\n'
+stored as textfile
+location '/root/vipin/hive'
+
+load data local inpath 'vipin/employee.txt' into table training_vipin.employeesExternal;
+
+
+Partitioning ::(partition attribute should be of last attribute)
+
+create table employeesPartition(emp_id int,emp_name string,emp_dsgntn string,emp_doj Date,emp_sal int)
+partitioned by(emp_dept string)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+stored as textfile;
+
+loading data: 
+  Static way ::load data local inpath 'vipin/employee_D.txt' into table employeesPartition partition (emp_dept='D')
+  Dynamic way:: insert overwrite table employeesPartition partition(emp_dept) select * from employees;
+
+
+create table departments(dept_id string, dept_name string)row format delimited
+fields terminated by ','
+lines terminated by '\n'
+stored as textfile;
+
+insert into departments values('A','Java');
+insert into departments values('B','C++');
+insert into departments values('C','C');
+insert into departments values('D','PASCAL');
+
+select e.* from employeesPartition e, departments d where e.emp_dept = d.dept_id;
+
+select * from employeesPartition natural join departments;
+
+select e.*, dept_name from employeesPartition e inner join departments d where e.emp_dept=d.dept_id;
+
+
+Bucketing::
+
+create table employeesPartitionBucket(emp_id int,emp_name string,emp_dsgntn string,emp_doj Date,emp_sal int)
+partitioned by(emp_dept string)
+clustered by (emp_id) into 2 buckets
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+stored as textfile;
+
+loading data :
+insert overwrite table employeesPartitionBucket partition(emp_dept) select emp_id,emp_name,emp_dsgntn,emp_doj,emp_sal,emp_dept from employees;
+
+//even
+select * from employeesPartitionBucket tablesample(bucket 1 out of 2);
+//odd
+select * from employeesPartitionBucket tablesample(bucket 2 out of 2);
+
+create view employee_view as select * from employeesPartitionBucket where emp_sal>24000;
+
+
+
+Program:::
+
+Steps:
+1 add jar file /tmp/.jar;
+2.create temporary function my_udf1 as 'Hive.FindDepartment';
+3.select emp_id, my_udf1(emp_doj) from employees;
