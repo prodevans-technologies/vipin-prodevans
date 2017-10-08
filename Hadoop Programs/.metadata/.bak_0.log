@@ -8,6 +8,7 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY org.eclipse.ui 2 0 2017-08-20 14:30:57.412
 !MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-08-20 14:30:57.412
 !MESSAGE Cannot bind to an undefined command: plug-in='com.liferay.ide.project.ui', id='com.liferay.ide.project.ui.upgrade.openLiferay7UpgradeAssistant'
 
 !ENTRY org.eclipse.egit.ui 2 0 2017-08-20 14:31:40.929

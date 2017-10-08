@@ -262,3 +262,5 @@ org.eclipse.core.internal.resources.ResourceException: Resource '/Spark/src/main
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+2017-10-08 16:13:36,654 ERROR [Worker-9] - System.err - log4j:WARN No appenders could be found for logger (org.eclipse.m2e.core.internal.builder.MavenBuilder).
+2017-10-08 16:13:36,685 ERROR [Worker-9] - System.err - log4j:WARN Please initialize the log4j system properly.
