@@ -10,21 +10,21 @@ object SparkHiveIntegration
 {
  
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("Hive and spark Integration")
+   val conf = new SparkConf().setAppName("Hive and spark Integration")
     val sc = new SparkContext(conf)
 
     val sqlContext = new SQLContext(sc)
 
     val hiveContext = new HiveContext(sc)
 
-    val rawData = hiveContext.sql("select * from training_rk.employees")
+    val rawData = hiveContext.sql("select * from vipin.employees")
     rawData.registerTempTable("hive_employees")
 
     val query = hiveContext.sql("Select * from hive_employees")
 
     query.show()
     
-    query.write.format("orc").saveAsTable("training_rk.result_emp")
+    query.write.format("orc").saveAsTable("vipin.result_emp")
     
     /*
      * data de-duplication
@@ -40,7 +40,7 @@ object SparkHiveIntegration
     
     query_HiveDataRank.show()
     
-    query_HiveDataRank.write.mode("overwrite").format("orc").saveAsTable("training_rk.result_emp")
+    query_HiveDataRank.write.mode("overwrite").format("orc").saveAsTable("vipin.result_emp")
     
   }
   

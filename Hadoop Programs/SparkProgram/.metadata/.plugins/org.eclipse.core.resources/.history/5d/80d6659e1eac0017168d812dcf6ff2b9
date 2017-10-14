@@ -1,5 +1,11 @@
 package com.prodevans.SparkHive
 
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.annotation.Experimental
+import org.apache.spark.sql.SQLContext
+import org.apache.spark.sql.hive.HiveContext
+
 object SparkHiveIntegration 
 {
  
@@ -11,14 +17,14 @@ object SparkHiveIntegration
 
     val hiveContext = new HiveContext(sc)
 
-    val rawData = hiveContext.sql("select * from training_rk.employees")
+    val rawData = hiveContext.sql("select * from vipin.employees")
     rawData.registerTempTable("hive_employees")
 
     val query = hiveContext.sql("Select * from hive_employees")
 
     query.show()
     
-    query.write.format("orc").saveAsTable("training_rk.result_emp")
+    query.write.format("orc").saveAsTable("vipin.result_emp")
     
     /*
      * data de-duplication
@@ -34,7 +40,7 @@ object SparkHiveIntegration
     
     query_HiveDataRank.show()
     
-    query_HiveDataRank.write.mode("overwrite").format("orc").saveAsTable("training_rk.result_emp")
+    query_HiveDataRank.write.mode("overwrite").format("orc").saveAsTable("vipin.result_emp")
     
   }
   

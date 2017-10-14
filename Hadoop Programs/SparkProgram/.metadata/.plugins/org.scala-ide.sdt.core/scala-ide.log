@@ -264,3 +264,10 @@ org.eclipse.core.internal.resources.ResourceException: Resource '/Spark/src/main
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 2017-10-08 16:13:36,654 ERROR [Worker-9] - System.err - log4j:WARN No appenders could be found for logger (org.eclipse.m2e.core.internal.builder.MavenBuilder).
 2017-10-08 16:13:36,685 ERROR [Worker-9] - System.err - log4j:WARN Please initialize the log4j system properly.
+2017-10-08 17:00:25,224 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:00:25,280 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:00:25,291 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:11:05,302 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:11:05,357 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:11:05,358 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2017-10-08 17:11:05,360 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
